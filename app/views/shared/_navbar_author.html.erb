@@ -17,7 +17,10 @@
             <a class="nav-link" href="post.html">About</a>
           </li>
           <li class="nav-item">
-            <%= link_to "Author Login", new_author_session_path, :class=>"nav-link"%>
+            <%= link_to "Account", edit_author_registration_path, :class=>"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log Out", destroy_author_session_path, method: :delete, :class=>"nav-link"%>
           </li>
         </ul>
       </div>
