@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_102240) do
+ActiveRecord::Schema.define(version: 2020_10_19_112303) do
 
   create_table "authors", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 2020_10_19_102240) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_authors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.text "description"
+    t.string "cover_image_link"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
 end
