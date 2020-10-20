@@ -19,7 +19,7 @@
       <div class="card px-2 py-2 mb-3">
         <div class="card-body">
           <p class="lead text-justify"><%= @post.description %></p>
-          <%= link_to 'Back', posts_path, :class=>"btn btn-primary" %>
+          <%= link_to 'Back', root_path, :class=>"btn btn-primary" %>
           <% if author_signed_in? %>
             <%= link_to "Edit", edit_post_path, :class=>"btn btn-warning" %>
             <%= link_to "Delete", post_path, method: :delete, data:{confirm: 'Are you sure?'}, :class=>"btn btn-danger" %>

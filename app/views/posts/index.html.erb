@@ -1,4 +1,4 @@
-<header class="masthead" style="background-image: url('https://images.pexels.com/photos/259756/pexels-photo-259756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
+<header class="masthead" style="background-image: url('https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -18,7 +18,7 @@
           <div class="post-preview">
             <h2 class="post-title text-justify"><%= link_to post.title, post, :class=>"no-underline green" %></h2>
             <h4 class="post-subtitle text-justify"><%= link_to post.subtitle, post %></h4>
-            <p class="post-meta text-justify"><%= truncate(post.description, length: 85) %></p>
+            <p class="post-meta text-justify"><%= post.created_at.strftime("%B, %d, %Y")%></p>
           </div>
           <hr>
         <% end %>

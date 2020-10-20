@@ -17,7 +17,7 @@
       <div class="col-lg-10 col-md-10 mx-auto">
         <% @posts.each do |post| %>
           <div class="post-preview">
-            <h2 class="post-title text-justify"><%= link_to post.title, post, :class=>"no-underline green" %></h2>
+            <h2 class="post-title"><%= link_to post.title, post, :class=>"no-underline green" %></h2>
             <h4 class="post-subtitle text-justify"><%= link_to post.subtitle, post %></h4>
             <p class="post-meta text-justify"><%= post.created_at.strftime("%B, %d, %Y")%></p>
           </div>
