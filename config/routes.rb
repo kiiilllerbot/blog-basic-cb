@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get '/authors/password', to: 'devise/passwords#new'
   end
 
+  get '/pages/about', to: 'pages#about', as: :about 
   devise_for :authors, :controllers => {:registrations => "registrations"}
 
 end

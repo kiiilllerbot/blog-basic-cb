@@ -1,40 +1,69 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<header class="masthead" style="background-image: url('https://images.pexels.com/photos/461169/pexels-photo-461169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h2>Profile And Site Tweaker</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>
+<div class="container" style="margin-top: -15vh">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 mx-auto">
+      <div class="card px-2 py-2 mb-2">
+        <div class="card-body">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+            <div class="form-inputs">
+              <label class="text-muted">Basic Information</label>
+              <%= f.input :name, required: true, autofocus: true, label: false, placeholder: 'Name' %>
+              <%= f.input :email, label: false, placeholder: 'Email' %>
+              <%= f.input :fb_link, label: false, placeholder: 'Facebook Profile Link (https://www.facebook.com/profile-id/)' %>
+              <%= f.input :ig_link, label: false, placeholder: 'Instagram Profile Link (https://www.instagram.com/profile-id/)' %>
+              <%= f.input :twitter_link, label: false, placeholder: 'Twitter Profile Link (https://www.twitter.com/profile-id/)' %>
+              <label class="text-muted">Site Settings</label>
+              <%= f.input :home_cover_img, label: false, placeholder: 'Home Page Cover Photo Link' %>
+              <%= f.input :home_title, label: false, placeholder: 'Home Page Title' %>
+              <%= f.input :home_subtitle, label: false, placeholder: 'Home Page Sub Title' %>
+              <%= f.input :about_cover_img, label: false, placeholder: 'About Page Cover Photo Link' %>
+              <%= f.input :about_title, label: false, placeholder: 'About Page Title' %>
+              <%= f.input :about_subtitle, label: false, placeholder: 'Home Page Sub Title'%>
+              <%= f.input :about, label: false, placeholder: 'About Page About Section', input_html:{rows: 6} %>
 
-  <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true %>
-    <%= f.input :email %>
-    <%= f.input :fb_link %>
-    <%= f.input :ig_link %>
-    <%= f.input :twitter_link %>
-    <%= f.input :home_cover_img %>
-    <%= f.input :home_title %>
-    <%= f.input :home_subtitle %>
-    <%= f.input :about_cover_img %>
-    <%= f.input :about_title %>
-    <%= f.input :about_subtitle %>
-    <%= f.input :about %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+              <%= f.input :password,
+                          label: false,
+                          placeholder: 'Password',
+                          hint: "Leave it blank if you don't want to change it",
+                          required: false,
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          label: false,
+                          placeholder: 'Confirm Password',
+                          required: false,
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :current_password,
+                          label: false,
+                          placeholder: 'Type Your Password Before Saving Changes',
+                          hint: "We need your current password to confirm your changes",
+                          required: true,
+                          input_html: { autocomplete: "current-password" } %>
+            </div>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+            <div class="form-actions">
+              <%= f.button :submit, "Update", :class=>"btn btn-warning" %>
+              <%= link_to "Back", root_path, :class=>"btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+</div>
